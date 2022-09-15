@@ -1,13 +1,14 @@
 <?php
 namespace models;
 
+use PDO;
 use models\base\SQL;
 
 class TodoModel extends SQL
 {
     public function __construct()
     {
-        parent::__construct('votre-table', 'cle-de-votre-table');
+        parent::__construct('todos', 'id');
     }
 
     function marquerCommeTermine($id){
@@ -20,5 +21,10 @@ class TodoModel extends SQL
         $stmt = $this->pdo->prepare("SELECT * FROM todos WHERE termine = 0;");
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    function ajouterTodo($texte)
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO todos (texte) VALUES (?)");
+        $stmt->execute([$texte]);
     }
 }
