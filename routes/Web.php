@@ -23,8 +23,9 @@ class Web
         Route::Add('/todo/liste', [$todo, 'liste']);
         Route::Add('/todo/ajouter', [$todo, 'ajouter']);
         Route::Add('/todo/terminer', [$todo, 'terminer']);
-        Route::Add('/todo/supprimer', [$todo, 'supprimer']);
+        Route::Add('/todo/supprimer/{id}', [$todo, 'supprimer']);
 
+        Route::Add('/sample/{id}', [$todo, 'sample']);
         //        Exemple de limitation d'accès à une page en fonction de la SESSION.
         //        if (SessionHelpers::isLogin()) {
         //            Route::Add('/logout', [$main, 'home']);

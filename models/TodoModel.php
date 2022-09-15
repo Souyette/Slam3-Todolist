@@ -27,4 +27,10 @@ class TodoModel extends SQL
         $stmt = $this->pdo->prepare("INSERT INTO todos (texte) VALUES (?)");
         $stmt->execute([$texte]);
     }
+
+    function supprimer($id)
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM todos WHERE id = ?;");
+        $stmt->execute([$id]);
+    }
 }
