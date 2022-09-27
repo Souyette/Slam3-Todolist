@@ -40,4 +40,15 @@ class TodoWeb extends Web
     {
         echo "Vous consulter l'identifiant $id";
     }
+
+    function login()
+    {
+        Template::render("views/global/connexion.php" , array());
+    }
+    
+    function create($login = "", $password = "")
+    {
+        $equipe = $this->todoModel->create($login, $password);
+        $this->redirect("./liste");
+    }
 }

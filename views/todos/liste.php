@@ -2,9 +2,23 @@
     <div class="card">
         <div class="card-body p-2">
             <!-- Action -->
+            <form action="./create" method="post" id="formContent">
+
+            <?php if (!empty($erreur)){ ?>
+                <div class="alert alert-danger" role="alert"><?= $erreur ?></div>
+            <?php } ?>
+
+            <!-- Login Form -->
+            <form>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login"/>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"/>
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+        </form>
             <form action="./ajouter" method="post" class="add">
                 <div class="input-group">
-                    <input id="texte" name="texte" type="text" class="form-control" placeholder="Prendre une note…" aria-label="My new idea" aria-describedby="basic-addon1"/>
+                    <input id="text" name="texte" type="text" class="form-control" placeholder="Prendre une note…" aria-label="My new idea" aria-describedby="basic-addon1"/>
                 </div>
             </form>
 

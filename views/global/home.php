@@ -11,7 +11,7 @@
                 
                 <div class="text-center">
                     <a href="./todo/liste"class="btn btn-outline-dark">
-                        <i class="bi bi-list"></i>
+                        <i class="bi bi-list-task"></i>
                     </a>
                     <a générée le <?= $date ?> />
                 </div>

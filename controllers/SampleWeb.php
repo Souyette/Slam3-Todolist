@@ -16,4 +16,22 @@ class SampleWeb extends Web
     {
         Template::render("views/global/about.php" , array("titre" => "À Propos", "dateDuJour" => date("d-m-y")));
     }
+
+    function login()
+    {
+        Template::render("views/global/connexion.php" , array());
+    }
+    
+    function create($login = "", $password = "")
+    {
+
+        if ($login = "" && $password= "")
+        {
+            $this->redirect("/login");
+        }
+            // Création de l'équipe
+        else $equipe = $this->verifConn->create($login, $password);
+        $this->redirect("./login");
+    }
+
 }

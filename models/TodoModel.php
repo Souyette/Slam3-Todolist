@@ -33,4 +33,11 @@ class TodoModel extends SQL
         $stmt = $this->pdo->prepare("DELETE FROM todos WHERE id = ?;");
         $stmt->execute([$id]);
     }
+
+    function create(mixed $login, mixed $password)
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO utilisateurs VALUES(null, ?, ?)");
+        $result = $stmt->execute([$login, password_hash($password, PASSWORD_BCRYPT)]);;      
+    }
+  
 }
