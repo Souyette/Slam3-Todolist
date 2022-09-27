@@ -19,6 +19,10 @@ class Web
         Route::Add('/', [$main, 'home']);
         Route::Add('/about', [$main, 'about']);
 
+        $test = new verifConn();
+        Route::Add('/login/home', [$test, 'login']);
+        Route::Add('/login/create', [$test, 'create']);
+        Route::Add('/login/loginn', [$test, 'loginn']);
 
         $todo = new TodoWeb();
         //if (SessionHelpers::isLogin()){
@@ -27,13 +31,11 @@ class Web
             Route::Add('/todo/terminer', [$todo, 'terminer']);
             Route::Add('/todo/supprimer/{id}', [$todo, 'supprimer']);
             Route::Add('/todo/create', [$todo, 'create']);
+            Route::Add('/sample/{id}', [$todo, 'sample']);
         //}
-        //$connect = new verifConn(); !!!! pq quand je rajoute ça c'est bug
-        $test = new verifConn();
-        Route::Add('/login/home', [$test, 'login']);
-        Route::Add('/login/create', [$test, 'create']);
 
-        Route::Add('/sample/{id}', [$todo, 'sample']);
+
+       
         //        Exemple de limitation d'accès à une page en fonction de la SESSION.
         //        if (SessionHelpers::isLogin()) {
         //            Route::Add('/logout', [$main, 'home']);

@@ -1,9 +1,10 @@
 <?php
 namespace controllers;
 
-use utils\Template;
 use models\VerifC;
+use utils\Template;
 use controllers\base\Web;
+use utils\SessionHelpers;
 
 class verifConn extends Web
 {
@@ -23,8 +24,29 @@ class verifConn extends Web
         $equipe = $this->verifC->create($login, $password);
         $this->redirect("/login/home");
     }
-    
-    
+
+    function loginn($login = "", $password = "")
+    {
+        if (SessionHelpers::isLogin()) {
+            $this->redirect("/");
+        }
+
+        $erreur = "";
+        if (!empty($login) && !empty($password)) {
+            $verificationLogin = new \models\VerifC();
+
+            $Verif = $verificationLogin->loginn($login, $password);
+            if ($Verif != null) {
+                SessionHelpers::login($Verif);
+                $this->redirect("../todo/liste");
+            } else {
+                SessionHelpers::logout();
+                $erreur = "Connexion impossible avec vos identifiants";
+            }
+        }
+
+        return Template::render("views/global/connexion.php", array("erreur" => $erreur));
+    }
 
     
 

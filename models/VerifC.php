@@ -11,14 +11,14 @@ class VerifC extends SQL
         parent::__construct('utilisateurs', 'ID');
     }
 
-    public function login(string $login, string $password): array|null
+    public function loginn(string $login, string $password)
     {
-        $stmt = $this->getPdo()->prepare('SELECT * FROM utilisateurs WHERE login = ? LIMIT 1');
+        $stmt = $this->pdo->prepare('SELECT * FROM utilisateurs WHERE login = ? LIMIT 1');
         $stmt->execute([$login]);
-        $equipe = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $loginName = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        if (password_verify($password, $equipe['password'])) {
-            return $equipe;
+        if (password_verify($password, $loginName['password'])) {
+            return $loginName;
         } else {
             return null;
         }
