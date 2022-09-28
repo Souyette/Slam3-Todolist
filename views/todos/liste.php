@@ -8,13 +8,6 @@
                 <div class="alert alert-danger" role="alert"><?= $erreur ?></div>
             <?php } ?>
 
-            <!-- Login Form -->
-            <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login"/>
-                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"/>
-                <input type="submit" class="fadeIn fourth" value="Log In">
-            </form>
-
         </form>
             <form action="./ajouter" method="post" class="add">
                 <div class="input-group">
@@ -34,15 +27,15 @@
                                 <?php
                                 if($todo['termine']=="1"){
                                     ?>
-                                    <a href="./supprimer/<?= $todo['id'] ?>" class="btn btn-outline-danger">
+                                    <a href="./supprimer" class="btn btn-outline-danger">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 <?php }else {?>   
-                                    <a href="./termine/<?= $todo['id'] ?>" class="btn btn-outline-success">
+                                    <a href="./terminer" class="btn btn-outline-success">
                                         <i class="bi bi-check"></i>
                                     </a>
                                 <?php } ?>
-                                <!-- Action à ajouter pour Supprimer -->
+
                               
                              
                             </div>

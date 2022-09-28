@@ -19,25 +19,27 @@ class verifConn extends Web
         Template::render("views/global/connexion.php" , array());
     }
 
-    function create($login = "", $password = "")
+    function create($login = "", $password = "",$mail = "")
     {
-        $equipe = $this->verifC->create($login, $password);
+        echo 'hello';
+        $equipe = $this->verifC->create($login, $password,$mail);
         $this->redirect("/login/home");
     }
 
-    function loginn($login = "", $password = "")
+    function loginn($login = "")
     {
         if (SessionHelpers::isLogin()) {
             $this->redirect("/");
         }
 
         $erreur = "";
-        if (!empty($login) && !empty($password)) {
+        if (!empty($login)) {
             $verificationLogin = new \models\VerifC();
 
-            $Verif = $verificationLogin->loginn($login, $password);
+            $Verif = $verificationLogin->loginn($login);
             if ($Verif != null) {
                 SessionHelpers::login($Verif);
+                // Template::render("views/common/header.php", array("login" => $login));
                 $this->redirect("../todo/liste");
             } else {
                 SessionHelpers::logout();
@@ -49,5 +51,14 @@ class verifConn extends Web
     }
 
     
+    function logout(): void
+    {
+        SessionHelpers::logout();
+        $this->redirect("../login/home");
+    }
 
+    function inscrire(): void
+    {
+        Template::render("views/global/inscription.php", array());
+    }
 }    

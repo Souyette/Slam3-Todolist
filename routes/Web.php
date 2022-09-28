@@ -23,16 +23,20 @@ class Web
         Route::Add('/login/home', [$test, 'login']);
         Route::Add('/login/create', [$test, 'create']);
         Route::Add('/login/loginn', [$test, 'loginn']);
+        Route::Add('/logout', [$test, 'logout']);
+        Route::Add('/login/inscrire', [$test, 'inscrire']);
+
+        
 
         $todo = new TodoWeb();
-        //if (SessionHelpers::isLogin()){
+        if (SessionHelpers::isLogin()){
             Route::Add('/todo/liste', [$todo, 'liste']);
             Route::Add('/todo/ajouter', [$todo, 'ajouter']);
             Route::Add('/todo/terminer', [$todo, 'terminer']);
-            Route::Add('/todo/supprimer/{id}', [$todo, 'supprimer']);
+            Route::Add('/todo/supprimer', [$todo, 'supprimer']);
             Route::Add('/todo/create', [$todo, 'create']);
             Route::Add('/sample/{id}', [$todo, 'sample']);
-        //}
+        }
 
 
        
