@@ -15,10 +15,10 @@ class VerifC extends SQL
     {
         $stmt = $this->pdo->prepare('SELECT * FROM utilisateurs WHERE login = ? LIMIT 1');
         $stmt->execute([$login]);
-        $loginName = $stmt->fetch(\PDO::FETCH_ASSOC);
-
-        if (password_verify($password, $loginName['password'])) {
-            return $loginName;
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        var_dump($login);
+        if (password_verify($password, $result['password'])) {
+            return $result;
         } else {
             return null;
         }
