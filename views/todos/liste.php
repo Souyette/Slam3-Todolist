@@ -1,5 +1,4 @@
 <div class="container p-3">
-    <div class="NomUser"><?=$_SESSION['USER']['login']?></div>
     <div class="card">
         <div class="card-body p-2">
             <!-- Action -->

@@ -25,6 +25,17 @@ class VerifC extends SQL
         }
     }
 
+    function VerifLogin(mixed $login)
+    {
+        strip_tags($login);
+        $stmt = $this->pdo->prepare("SELECT `login` FROM utilisateurs WHERE `login` = ?");
+        $stmt->execute([$login]);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if($result){ 
+            return true;
+        }else return false;
+    }
+
     function create(mixed $login, mixed $password, mixed $mail)
     {
         strip_tags($login);

@@ -14,6 +14,7 @@
             <form class="inscrire">
                 <div><input type="text" id="login" class="fadeIn second" name="login" placeholder="Login"/></div>
                 <div><input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"/></div>
+                <div><input type="password" id="password1" class="fadeIn third" name="password1" placeholder="Password Again"/></div>
                 <div><input type="email" id="mail" class="fadeIn second" name="mail" placeholder="email"/></div>
                 <input type="submit" class="fadeIn fourth" value="Sign in">
             </form>

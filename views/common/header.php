@@ -16,7 +16,7 @@
         <ul class="nav nav-pills">
             <?php
             if (\utils\SessionHelpers::isLogin()) {
-                echo '<li class="nav-item"><a class="nav-link">'.$_SESSION['USER']['login'].'</a></li>';
+                echo '<li class="nav-item"><a href="../todo/listeUser" class="nav-link">'.$_SESSION['USER']['login'].'</a></li>';
                 echo '<li class="nav-item"><a href="../logout" class="nav-link">Déconnexion</a></li>';
                
             }
@@ -26,7 +26,7 @@
             }
             ?>
            
-            <li class="nav-item"><a href="./about" class="nav-link">À propos</a></li>
+            <li class="nav-item"><a href="../about" class="nav-link">À propos</a></li>
         </ul>
     </div>
 </nav>
