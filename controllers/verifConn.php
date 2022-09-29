@@ -22,11 +22,11 @@ class verifConn extends Web
     function create($login = "", $password = "",$mail = "")
     {
         echo 'hello';
-        $equipe = $this->verifC->create($login, $password,$mail);
+        $this->verifC->create($login, $password,$mail);
         $this->redirect("/login/home");
     }
 
-    function loginn($login = "")
+    function loginn($login = "" , $password = "")
     {
         if (SessionHelpers::isLogin()) {
             $this->redirect("/");
@@ -36,18 +36,18 @@ class verifConn extends Web
         if (!empty($login)) {
             $verificationLogin = new \models\VerifC();
 
-            $Verif = $verificationLogin->loginn($login);
+            $Verif = $verificationLogin->loginn($login,$password);
             if ($Verif != null) {
                 SessionHelpers::login($Verif);
-                // Template::render("views/common/header.php", array("login" => $login));
-                $this->redirect("../todo/liste");
+     
+                $this->redirect("../todo/listeUser");
             } else {
                 SessionHelpers::logout();
                 $erreur = "Connexion impossible avec vos identifiants";
             }
         }
 
-        return Template::render("views/global/connexion.php", array("erreur" => $erreur));
+        return Template::render("views/global/connexion.php", array("erreur" => $erreur,"login" => 'toto'));
     }
 
     

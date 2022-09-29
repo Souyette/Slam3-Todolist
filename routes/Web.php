@@ -19,18 +19,19 @@ class Web
         Route::Add('/', [$main, 'home']);
         Route::Add('/about', [$main, 'about']);
 
-        $test = new verifConn();
-        Route::Add('/login/home', [$test, 'login']);
-        Route::Add('/login/create', [$test, 'create']);
-        Route::Add('/login/loginn', [$test, 'loginn']);
-        Route::Add('/logout', [$test, 'logout']);
-        Route::Add('/login/inscrire', [$test, 'inscrire']);
+        $conn = new verifConn();
+        Route::Add('/login/home', [$conn, 'login']);
+        Route::Add('/login/create', [$conn, 'create']);
+        Route::Add('/login/loginn', [$conn, 'loginn']);
+        Route::Add('/logout', [$conn, 'logout']);
+        Route::Add('/login/inscrire', [$conn, 'inscrire']);
 
         
 
         $todo = new TodoWeb();
         if (SessionHelpers::isLogin()){
             Route::Add('/todo/liste', [$todo, 'liste']);
+            Route::Add('/todo/listeUser', [$todo, 'listeUser']);
             Route::Add('/todo/ajouter', [$todo, 'ajouter']);
             Route::Add('/todo/terminer', [$todo, 'terminer']);
             Route::Add('/todo/supprimer', [$todo, 'supprimer']);

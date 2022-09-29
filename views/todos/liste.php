@@ -1,4 +1,5 @@
 <div class="container p-3">
+    <div class="NomUser"><?=$_SESSION['USER']['login']?></div>
     <div class="card">
         <div class="card-body p-2">
             <!-- Action -->
@@ -7,11 +8,12 @@
             <?php if (!empty($erreur)){ ?>
                 <div class="alert alert-danger" role="alert"><?= $erreur ?></div>
             <?php } ?>
-
+       
         </form>
             <form action="./ajouter" method="post" class="add">
                 <div class="input-group">
-                    <input id="text" name="texte" type="text" class="form-control" placeholder="Prendre une note…" aria-label="My new idea" aria-describedby="basic-addon1"/>
+
+                    <input id="id" name="id" type="text" class="form-control" placeholder="Prendre une note…" aria-label="My new idea" aria-describedby="basic-addon1"/>
                 </div>
             </form>
 

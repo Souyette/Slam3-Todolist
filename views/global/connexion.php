@@ -14,13 +14,10 @@
             <form>
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login"/>
                 <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"/>
-                <input type="submit" class="fadeIn fourth" value="Log In">
+                <input type="submit" class="btn btn-primary" value="Log In">
             </form>
 
         </form>
-        <form action="./inscrire">
-            <input type="submit" value="S'inscrire">
-        </form>
     </div>
 
-</div>
+  
