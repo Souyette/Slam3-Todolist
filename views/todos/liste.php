@@ -27,11 +27,11 @@
                                 <?php
                                 if($todo['termine']=="1"){
                                     ?>
-                                    <a href="./supprimer" class="btn btn-outline-danger">
+                                    <a href="./supprimer?id=<?= $todo['id'] ?>" class="btn btn-outline-danger">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 <?php }else {?>   
-                                    <a href="./terminer" class="btn btn-outline-success">
+                                    <a href="./terminer?id=<?= $todo['id'] ?>" class="btn btn-outline-success">
                                         <i class="bi bi-check"></i>
                                     </a>
                                 <?php } ?>

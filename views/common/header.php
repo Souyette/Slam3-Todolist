@@ -19,10 +19,12 @@
                 echo $login;
                 echo '<li class="nav-item"><a class="nav-link">$login</a></li>';
                 echo '<li class="nav-item"><a href="./me" class="nav-link">Mon compte</a></li>';
-                echo '<li class="nav-item"><a href="../logout" class="nav-link">Déco</a></li>';
+                echo '<li class="nav-item"><a href="../logout" class="nav-link">Déconnexion</a></li>';
                
             }
+            else echo '<li class="nav-item"><a href="../login/home" class="nav-link">Se connecter</a></li>';
             ?>
+            
             <li class="nav-item"><a href="./about" class="nav-link">À propos</a></li>
         </ul>
     </div>

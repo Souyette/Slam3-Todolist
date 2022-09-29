@@ -32,7 +32,7 @@ class TodoWeb extends Web
 
     function supprimer($id = ''){
         if($id != ""){
-            $this->todoModel->marquerCommeTermine($id);
+            $this->todoModel->supprimer($id);
         }
         $this->redirect("./liste");
     }
