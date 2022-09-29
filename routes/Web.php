@@ -20,9 +20,9 @@ class Web
         Route::Add('/about', [$main, 'about']);
 
         $conn = new verifConn();
-        Route::Add('/login/home', [$conn, 'login']);
+        Route::Add('/login/home', [$conn, 'home']);
         Route::Add('/login/create', [$conn, 'create']);
-        Route::Add('/login/loginn', [$conn, 'loginn']);
+        Route::Add('/login/loginn', [$conn, 'login']);
         Route::Add('/logout', [$conn, 'logout']);
         Route::Add('/login/inscrire', [$conn, 'inscrire']);
 

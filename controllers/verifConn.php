@@ -14,7 +14,7 @@ class verifConn extends Web
        $this->verifC = new VerifC();
     }
 
-    function login()
+    function home()
     {
         Template::render("views/global/connexion.php" , array());
     }
@@ -26,7 +26,7 @@ class verifConn extends Web
         $this->redirect("/login/home");
     }
 
-    function loginn($login = "" , $password = "")
+    function login($login = "" , $password = "")
     {
         if (SessionHelpers::isLogin()) {
             $this->redirect("/");
